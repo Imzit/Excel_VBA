@@ -1,0 +1,15 @@
+Sub QR()
+Application.ScreenUpdating = False
+    For i = 2 To 10
+        With ActiveSheet.OLEObjects.Add(ClassType:="BARCODE.BarCodeCtrl.1")
+            .Name = "BarCodeCtrl" & i
+            .Object.Style = 11
+            .Left = 120.5
+            .Top = 100 * (i - 2) + 16.5
+            .Height = 61.5
+            .Width = 153.75
+            .Object.Value = Cells(i, 1).Text
+        End With
+    Next
+Application.ScreenUpdating = True
+End Sub
